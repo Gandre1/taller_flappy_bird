@@ -13,27 +13,28 @@ Un juego estilo Flappy Bird implementado usando HTML5 Canvas, CSS y JavaScript p
 
 ## Estructura del proyecto
 
+```text
 flappy-bird-game/
-├── index.html              # Main HTML file with canvas element
+├── index.html
 ├── css/
-│   └── style.css          # Responsive design and styling
+│   └── style.css
 ├── js/
-│   ├── config.js          # Game configuration and settings
-│   ├── game.js            # Main game engine and entry point
-│   ├── bird.js            # Bird physics and controls
-│   ├── pipe.js            # Pipe generation and management
-│   ├── collision.js       # Collision detection system
-│   ├── renderer.js        # Canvas rendering and UI
-│   ├── score.js           # Score tracking and persistence
-│   ├── input.js           # Input handling (keyboard, mouse, touch)
-│   ├── state.js           # Game state management
-│   ├── sound.js           # Sound effects (optional)
-│   └── test-setup.js      # Setup verification
+│   ├── config.js
+│   ├── game.js
+│   ├── bird.js
+│   ├── pipe.js
+│   ├── collision.js
+│   ├── renderer.js
+│   ├── score.js
+│   ├── input.js
+│   ├── state.js
+│   ├── sound.js
+│   └── test-setup.js
 ├── assets/
-│   ├── images/            # Game sprites and images
-│   └── sounds/            # Sound effects
-├── package.json           # Dependencies and scripts
-└── babel.config.js        # Babel configuration for testing
+│   ├── images/
+│   └── sounds/
+├── package.json
+└── babel.config.js
 
 ## Características
 
