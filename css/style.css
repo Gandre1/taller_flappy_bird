@@ -1,0 +1,259 @@
+/* Flappy Bird Game - Main Stylesheet */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    touch-action: manipulation; /* Prevent browser zoom on mobile */
+}
+
+/* Game container */
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Canvas styling */
+#gameCanvas {
+    display: block;
+    background-color: #70c5ce; /* Sky blue from design */
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3; /* Maintain 800x600 aspect ratio */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Screen overlays (start, game over) */
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    max-width: 90%;
+    z-index: 10;
+}
+
+.screen.hidden {
+    display: none;
+}
+
+.screen h1 {
+    font-family: 'Press Start 2P', monospace;
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 #ffd700;
+}
+
+.screen p {
+    color: #555;
+    font-size: 1.2rem;
+    margin: 15px 0;
+    line-height: 1.5;
+}
+
+.screen .instructions {
+    font-size: 1rem;
+    color: #777;
+    margin-top: 25px;
+    font-style: italic;
+}
+
+/* Bird demo animation */
+.bird-demo {
+    width: 60px;
+    height: 60px;
+    background: #f2d22e; /* Bird yellow from design */
+    border-radius: 50%;
+    margin: 20px auto;
+    position: relative;
+    animation: bird-flap 0.5s infinite alternate ease-in-out;
+}
+
+.bird-demo::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: -10px;
+    width: 20px;
+    height: 10px;
+    background: #ff9800;
+    border-radius: 50%;
+}
+
+.bird-demo::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border-radius: 50%;
+}
+
+@keyframes bird-flap {
+    0% { transform: translateY(0) rotate(-5deg); }
+    100% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Score display */
+.score-display {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.5rem;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+#currentScore {
+    color: #4a90e2;
+}
+
+#finalScore {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 10px;
+    }
+    
+    .screen {
+        padding: 30px 20px;
+    }
+    
+    .screen h1 {
+        font-size: 1.8rem;
+    }
+    
+    .screen p {
+        font-size: 1rem;
+    }
+    
+    .score-display {
+        font-size: 1.2rem;
+        padding: 8px 16px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .bird-demo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .screen h1 {
+        font-size: 1.5rem;
+    }
+    
+    .screen p {
+        font-size: 0.9rem;
+    }
+    
+    .score-display {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+    
+    body {
+        padding: 5px;
+    }
+}
+
+/* High score indicator */
+.high-score {
+    color: #ff9800;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Loading state */
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Error state */
+.error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(231, 76, 60, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 80%;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .bird-demo {
+        animation: none;
+    }
+    
+    .high-score {
+        animation: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .game-container {
+        display: none;
+    }
+    
+    body::after {
+        content: "Flappy Bird Game - Play online at your game URL";
+        display: block;
+        text-align: center;
+        margin-top: 50px;
+        font-size: 1.2rem;
+    }
+}

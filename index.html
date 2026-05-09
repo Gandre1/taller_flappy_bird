@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="startScreen" class="screen">
+            <h1>FLAPPY BIRD</h1>
+            <div class="bird-demo"></div>
+            <p>Press SPACE or CLICK to start</p>
+            <p class="instructions">Avoid the pipes and stay in bounds!</p>
+        </div>
+        <div id="gameOverScreen" class="screen hidden">
+            <h1>GAME OVER</h1>
+            <p>Score: <span id="finalScore">0</span></p>
+            <p>Press SPACE or CLICK to restart</p>
+        </div>
+        <div class="score-display">
+            <span id="currentScore">0</span>
+        </div>
+    </div>
+    <!-- Game Configuration -->
+    <script src="js/config.js"></script>
+    
+    <!-- Game Modules (load in dependency order) -->
+    <script src="js/state.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/bird.js"></script>
+    <script src="js/pipe.js"></script>
+    <script src="js/collision.js"></script>
+    <script src="js/score.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/sound.js"></script>
+    
+    <!-- Main Game Engine (depends on all modules) -->
+    <script src="js/game.js"></script>
+    
+    <!-- Test setup (for verification) -->
+    <script src="js/test-setup.js"></script>
+    
+    <!-- Uncomment for manual testing -->
+    <!-- <script src="js/state.test.js"></script> -->
+</body>
+</html>
