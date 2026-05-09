@@ -125,14 +125,16 @@ class SoundManager {
      */
     playSound(key) {
         if (!this.isSupported || this.isMuted) return;
-        
+
         const sound = this.sounds[key];
-        if (sound && sound.play) {
-            // Clone the audio to allow overlapping sounds
-            const audioClone = sound.cloneNode ? sound.cloneNode() : sound;
-            audioClone.volume = this.volume;
-            
-            audioClone.play().catch(error => {
+        if (!sound || typeof sound.play !== 'function') return;
+
+        const audioClone = sound.cloneNode ? sound.cloneNode() : sound;
+        audioClone.volume = this.volume;
+
+        const playPromise = audioClone.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(error => {
                 console.warn(`Failed to play sound: ${key}`, error);
             });
         }

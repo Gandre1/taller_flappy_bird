@@ -130,26 +130,6 @@ if (allModulesLoaded && canvas) {
     }
 }
 
-function initializeGame() {
-    try {
-        console.log('Creating game engine instance...');
-        window.game = new GameEngine(canvas);
-        
-        console.log('Starting game engine...');
-        window.game.start();
-        
-        console.log('✅ Game initialized successfully!');
-        console.log('Game controls:');
-        console.log('  - SPACE, CLICK, or TAP: Make bird jump');
-        console.log('  - R or ENTER: Restart game');
-        console.log('  - Check browser console for debug info');
-        
-    } catch (error) {
-        console.error('❌ Failed to initialize game:', error);
-        console.error('Error stack:', error.stack);
-    }
-}
-
 // Export for testing
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {

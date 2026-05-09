@@ -25,13 +25,11 @@ class PipeManager {
      */
     update(deltaTime, canvasWidth, canvasHeight) {
         // Update spawn timer
-        this.spawnTimer += deltaTime * 1000; // Convert to milliseconds
-        
-        // Spawn new pipe if interval has passed and we're under max pipes
-        if (this.spawnTimer - this.lastSpawnTime >= this.config.spawnInterval && 
-            this.pipes.length < this.config.maxPipes) {
-            this.spawnPipe(canvasHeight);
-            this.lastSpawnTime = this.spawnTimer;
+        this.spawnTimer += deltaTime * 1000;
+
+        if (this.spawnTimer >= this.config.spawnInterval) {
+            this.spawnPipe(canvasWidth, canvasHeight);
+            this.spawnTimer = 0;
         }
         
         // Update and remove off-screen pipes
@@ -41,7 +39,7 @@ class PipeManager {
     /**
      * Spawn a new pipe pair
      */
-    spawnPipe(canvasHeight) {
+    spawnPipe(canvasWidth, canvasHeight) {
         const groundHeight = 112; // From config
         const availableHeight = canvasHeight - groundHeight;
         

@@ -41,7 +41,7 @@ class Bird {
     jump() {
         if (!this.isAlive) return;
         
-        this.velocityY = this.jumpForce;
+        this.velocityY = -this.jumpForce;
         this.isFlapping = true;
         this.animationTime = 0;
         
@@ -59,8 +59,7 @@ class Bird {
         this.velocityY += this.gravity * deltaTime;
         
         // Limit velocity
-        this.velocityY = Math.max(-this.maxVelocity, Math.min(this.maxVelocity, this.velocityY));
-        
+        this.velocityY = Math.min(this.velocityY, this.maxVelocity);        
         // Update position
         this.y += this.velocityY * deltaTime;
         
