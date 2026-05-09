@@ -35,6 +35,7 @@ flappy-bird-game/
 │   └── sounds/
 ├── package.json
 └── babel.config.js
+```
 
 ## Características
 
