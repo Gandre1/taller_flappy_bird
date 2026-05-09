@@ -14,26 +14,26 @@ Un juego estilo Flappy Bird implementado usando HTML5 Canvas, CSS y JavaScript p
 ## Estructura del proyecto
 
 flappy-bird-game/
-├── index.html              # Archivo HTML principal con el elemento canvas
+├── index.html              # Main HTML file with canvas element
 ├── css/
-│   └── style.css          # Diseño responsive y estilos
+│   └── style.css          # Responsive design and styling
 ├── js/
-│   ├── config.js          # Configuración y ajustes del juego
-│   ├── game.js            # Motor principal del juego y punto de entrada
-│   ├── bird.js            # Física y controles del pájaro
-│   ├── pipe.js            # Generación y administración de tuberías
-│   ├── collision.js       # Sistema de detección de colisiones
-│   ├── renderer.js        # Renderizado en canvas e interfaz
-│   ├── score.js           # Control de puntuación y persistencia
-│   ├── input.js           # Manejo de entrada (teclado, mouse, táctil)
-│   ├── state.js           # Gestión de estados del juego
-│   ├── sound.js           # Efectos de sonido (opcional)
-│   └── test-setup.js      # Verificación de configuración
+│   ├── config.js          # Game configuration and settings
+│   ├── game.js            # Main game engine and entry point
+│   ├── bird.js            # Bird physics and controls
+│   ├── pipe.js            # Pipe generation and management
+│   ├── collision.js       # Collision detection system
+│   ├── renderer.js        # Canvas rendering and UI
+│   ├── score.js           # Score tracking and persistence
+│   ├── input.js           # Input handling (keyboard, mouse, touch)
+│   ├── state.js           # Game state management
+│   ├── sound.js           # Sound effects (optional)
+│   └── test-setup.js      # Setup verification
 ├── assets/
-│   ├── images/            # Sprites e imágenes del juego
-│   └── sounds/            # Efectos de sonido
-├── package.json           # Dependencias y scripts
-└── babel.config.js        # Configuración de Babel para pruebas
+│   ├── images/            # Game sprites and images
+│   └── sounds/            # Sound effects
+├── package.json           # Dependencies and scripts
+└── babel.config.js        # Babel configuration for testing
 
 ## Características
 
